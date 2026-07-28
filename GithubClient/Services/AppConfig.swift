@@ -1,14 +1,17 @@
 import Foundation
 
 enum AppConfig {
-    
-    
     private static let filename = "config"
 
     private enum Keys {
         static let apiBaseURL = "API_BASE_URL"
         static let apiToken = "API_TOKEN"
     }
+
+    private static let fallbackConfig: [String: Any] = [
+        Keys.apiBaseURL: "https://api.github.com",
+        Keys.apiToken: ""
+    ]
 
     private static var config: [String: Any] {
         guard
@@ -17,23 +20,17 @@ enum AppConfig {
             let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil),
             let dict = plist as? [String: Any]
         else {
-            fatalError("No se pudo cargar \(filename).plist")
+            return fallbackConfig
         }
-        return dict
+
+        return dict.merging(fallbackConfig) { _, new in new }
     }
 
-    
     static var apiBaseURL: String {
-        guard let value = config[Keys.apiBaseURL] as? String else {
-            fatalError("No se pudo obtener la URL de base de config.plist")
-        }
-        return value
+        config[Keys.apiBaseURL] as? String ?? "https://api.github.com"
     }
 
     static var apiToken: String {
-        guard let value = config[Keys.apiToken] as? String else {
-            fatalError("No se pudo obtener el token de config.plist")
-        }
-        return value
+        config[Keys.apiToken] as? String ?? ""
     }
 }

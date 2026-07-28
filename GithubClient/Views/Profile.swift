@@ -11,15 +11,15 @@ struct Profile: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Josue Herrera")
+                Text("Nando")
                     .font(.title)
                 Image (uiImage: .githubLogo)
                     .resizable()
                     .scaledToFit()
-                Text("jxherrera")
+                Text("Nandox3s")
                     .font(.headline)
                     .padding(.vertical)
-                Text("lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at massa sit amet risus hendrerit")
+                Text("Desarrollador iOS interesado en SwiftUI, APIs y proyectos prácticos.")
                     .font(.caption)
             }
             .padding()

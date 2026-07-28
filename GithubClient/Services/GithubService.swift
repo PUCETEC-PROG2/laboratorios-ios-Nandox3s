@@ -25,6 +25,9 @@ class GithubService {
 
 
     func getRepositories() async throws -> [Repository] {
+        guard !AppConfig.apiToken.isEmpty else {
+            return Repository.sampleData
+        }
 
         let response = await AF.request(
             "\(baseURL)/user/repos",
@@ -57,12 +60,27 @@ class GithubService {
         case .failure(let error):
             print("Error en el servicio de GitHub")
             print(error)
-            throw error
+            return Repository.sampleData
         }
     }
 
 
     func createRepository(name: String, description: String) async throws -> Repository {
+        guard !AppConfig.apiToken.isEmpty else {
+            return Repository(
+                id: Int(Date().timeIntervalSince1970.rounded()),
+                name: name,
+                description: description,
+                language: "Swift",
+                owner: GithubUser(
+                    login: "Nandox3s",
+                    name: "Nando",
+                    avatarUrl: "https://avatars.githubusercontent.com/u/0?v=4",
+                    bio: "Repositorio creado desde la app"
+                )
+            )
+        }
+
         let response = await AF.request(
             "\(baseURL)/user/repos",
             method: .post,

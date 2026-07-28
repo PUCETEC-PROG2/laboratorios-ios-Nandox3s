@@ -26,7 +26,7 @@ struct ContentView: View {
                 .tabItem{
                     Label("Perfil", systemImage: "person")
                 }
-                .tag(3)
+                .tag(2)
         }
     }
 }
