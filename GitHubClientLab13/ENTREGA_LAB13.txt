@@ -1,0 +1,15 @@
+LABORATORIO 13 - CHECKLIST
+
+[OK] Tercera pestaña: Profile
+[OK] GET /user
+[OK] Modelo GitHubUser
+[OK] ProfileViewModel
+[OK] ProfileView en SwiftUI
+[OK] Datos del perfil obtenidos desde GitHub
+[OK] Sin nombre/login/avatar/bio/estadísticas hardcodeadas
+[OK] Manejo de carga y errores
+[OK] GITHUB_TOKEN fuera del código fuente
+
+ANTES DE EJECUTAR:
+Xcode > Product > Scheme > Edit Scheme > Run > Arguments > Environment Variables
+Agregar GITHUB_TOKEN y habilitarlo.
