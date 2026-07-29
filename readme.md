@@ -5,9 +5,9 @@
 Este README contiene las instrucciones necesarias para desarrollar la versión iOS de la aplicación cliente de GitHub. Se enfoca en SwiftUI, arquitectura recomendada (MVVM), y en el uso de Alamofire para consumir la API REST de GitHub. Los laboratorios 10, 11 y 12 están orientados a UI (listas, formularios, inputs y botones) y a integrar llamadas HTTP (GET y POST).
 
 ## Datos del estudiante.
-- Nombre del Estudiante: _________________
-- Carrera / Nivel; _______________
----
+- Nombre del Estudiante: Fernando Socasi
+- Carrera / Nivel; Desarrollo en software / 4TO Semestre
+
 
 ## Requisitos mínimos
 
